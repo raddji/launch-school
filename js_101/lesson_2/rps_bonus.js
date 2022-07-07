@@ -17,6 +17,25 @@ function computerWins() {
   prompt(`Computer score is: ${computerScore}`);
 }
 
+function welcomeMessage() {
+  console.log('WELCOME TO ROCK (r) PAPER (p) SCISSORS (sc) SPOCK (s) LIZARD (l) !');
+  console.log(`\nScissors cuts Paper covers Rock crushes\n
+  Lizard poisons Spock smashes Scissors\n
+  decapitates Lizard eats Paper disproves\n
+  Spock vaporizes Rock crushes Scissors.\n `);
+  prompt(`Choose one: ${VALID_CHOICES.join(', ')}`);
+}
+
+function playAgain() {
+  prompt('Would you like to play another game? (y/n)');
+  let answer = readline.question().toLowerCase();
+  while (answer[0] !== 'y' && answer[0] !== 'n') {
+    prompt('Enter a valid answer: "y" or "n" ');
+    answer = readline.question().toLowerCase();
+  }
+  return answer;
+}
+
 function prompt(message) {
   console.log(`=> ${message}`);
 }
@@ -24,7 +43,7 @@ function prompt(message) {
 function displayWinner(playerChoice, computerChoice) {
   prompt(`Player chose: ${playerChoice}, computer chose: ${computerChoice}`);
 
-  if ((playerChoice === 'r' && (computerChoice === 'scn' || computerChoice === 'l')) ||
+  if ((playerChoice === 'r' && (computerChoice === 'sc' || computerChoice === 'l')) ||
       (playerChoice === 'p' && (computerChoice === 'r' || computerChoice === 'sp')) ||
       (playerChoice === 'sc' && (computerChoice === 'p' || computerChoice === 'l')) ||
       (playerChoice === 'l' && (computerChoice === 'sp' || computerChoice === 'p')) ||
@@ -43,12 +62,7 @@ function displayWinner(playerChoice, computerChoice) {
 
 while (true) {
   console.clear();
-  console.log('WELCOME TO ROCK (r) PAPER (p) SCISSORS (sc) SPOCK (s) LIZARD (l) !');
-  console.log(`\nScissors cuts Paper covers Rock crushes\n
-  Lizard poisons Spock smashes Scissors\n
-  decapitates Lizard eats Paper disproves\n
-  Spock vaporizes Rock crushes Scissors.\n `);
-  prompt(`Choose one: ${VALID_CHOICES.join(', ')}`);
+  welcomeMessage();
 
   let playerChoice = readline.question();
 
@@ -69,12 +83,7 @@ while (true) {
     prompt(`Computer won 3 out of 5!`);
     break;
   }
-  prompt('Would you like to play another game? (y/n)');
-  let answer = readline.question().toLowerCase();
-  while (answer[0] !== 'y' && answer[0] !== 'n') {
-    prompt('Enter a valid answer: "y" or "n" ');
-    answer = readline.question().toLocaleLowerCase();
-  }
+  let answer = playAgain();
 
   if (answer[0] !== 'y') break;
 }
