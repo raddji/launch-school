@@ -67,3 +67,65 @@ console.log(anagramDifference("codewars","hackerrank")); // 10
 // 5. if not remove the element and add to a counter variable 
 // 6. else continue to the next iteration
 // 7. return the counter value
+
+//Solutions:
+
+
+// 1st way
+function anagramDifference(word1, word2) {
+  let chars1 = word1.split("");
+  let chars2 = word2.split("");
+
+  let toBeRemoved1 = chars1.filter(char => {
+    if (chars2.includes(char)) {
+      let idx2 = chars2.indexOf(char);
+      chars2.splice(idx2, 1);
+      return false;
+    }
+
+    return true;
+  });
+
+  return toBeRemoved1.concat(chars2).length;
+}
+
+//2nd way
+function anagramDifference(str1, str2) {
+  let counter = 0;
+  let arr2 = str2.split("");
+
+  for (let i = 0; i < str1.length; i++) {
+    let idx = arr2.indexOf(str1[i]);
+    if (idx === -1) counter += 1;
+    else arr2.splice(idx, 1);
+  }
+
+  counter += arr2.length;
+  return counter;
+}
+
+//3rd way
+function countOccurrences(str) {
+  return str.split("").reduce((occ, letter) => {
+    if (!occ[letter]) occ[letter] = 0;
+    occ[letter] += 1;
+    return occ;
+  }, {});
+}
+
+function anagramDifference(wordOne, wordTwo) {
+  let letterOccs1 = countOccurrences(wordOne);
+  let letterOccs2 = countOccurrences(wordTwo);
+  let nonCommonCount = 0;
+  for (let letter in letterOccs1) {
+    if (letterOccs2[letter]) {
+      nonCommonCount += Math.abs(letterOccs1[letter] - letterOccs2[letter]);
+      delete letterOccs2[letter];
+    } else {
+      nonCommonCount += letterOccs1[letter];
+    }
+  }
+
+  nonCommonCount += Object.values(letterOccs2).reduce((sum, val) => sum + val, 0);
+  return nonCommonCount;
+}
