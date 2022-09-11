@@ -6,6 +6,14 @@ let computerScore = 0;
 let playerScore = 0;
 const MAX_SCORE = 3;
 
+const WINNING_MOVES = {
+  'r': ['sc', 'l'],
+  'p': ['sp', 'r'],
+  'sc': ['p', 'l'],
+  'sp': ['r', 'sc'],
+  'l': ['p', 'sp']
+};
+
 function playerWins() {
   prompt('Player won!');
   playerScore += 1;
