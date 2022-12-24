@@ -1,0 +1,13 @@
+{
+  "select": "Please, select a language: \n 1) English \n 2) Spanish",
+  "validLanguage": "Please select a valid language. 1) English \n 2) Spanish",
+  "en": {
+    "welcome": "Welcome to Calculator!",
+    "firstNumber": "What is the first number?",
+    "secondNumber": "What is the second number?",
+    "operation": "What operation would you like to perform? \n 1) Add \n 2) Subtract \n 3) Multiply \n 4) Divide",
+    "invalidNumber": "Hmm... that doesn't look like a valid number. Please, try again!",
+    "newOperation": "Would you like to perform another operation? (y/n)",
+    "goodbye": "Goodbye! Thanks for using Calculator! 👋"
+  }
+}
