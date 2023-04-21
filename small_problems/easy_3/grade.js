@@ -31,22 +31,22 @@ function getGrade(grade1, grade2, grade3) {
   let gradeAverage = (Number(grade1) + Number(grade2) + Number(grade3));
   gradeAverage = Math.round(gradeAverage / 3);
 
-  switch (true) {
-    case gradeAverage > 90:
-      return "A";
-    default: 
-    return console.log(`Keep trying..`);
-  }
-
-  // if (gradeAverage <= 100 && gradeAverage > 90) {
-  //   return "A";
-  // } else if (gradeAverage <= 90 && gradeAverage > 80) {
-  //   return "B";
-  // } else if (gradeAverage <= 80 && gradeAverage > 70) {
-  //   return "C";
-  // } else if (gradeAverage <= 70 && gradeAverage > 60) {
-  //   return "D";
+  // switch (true) {
+  //   case gradeAverage > 90:
+  //     return "A";
+  //   default: 
+  //   return console.log(`Keep trying..`);
   // }
+
+  if (gradeAverage <= 100 && gradeAverage > 90) {
+    return "A";
+  } else if (gradeAverage <= 90 && gradeAverage > 80) {
+    return "B";
+  } else if (gradeAverage <= 80 && gradeAverage > 70) {
+    return "C";
+  } else if (gradeAverage <= 70 && gradeAverage > 60) {
+    return "D";
+  }
 }
 
 
