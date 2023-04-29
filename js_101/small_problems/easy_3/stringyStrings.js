@@ -14,18 +14,35 @@
 
 // algorithm: 
 // set a variable `value` to an empty string to hold the output
+// set `numArr` to empty array
 // use a for loop to determine length of output string
-// if at an even character place add '1'
-// if at an odd character place add '0'
+// iterate over `numArr` 
+  // if at an even character place add '1'
+  // if at an odd character place add '0'
 // return 
 
-function stringy(stringSize) {
+
+function stringy(num) {
   let value = '';
-  
+  let numArr = [];
+
+  for (let idx = 0; idx < num; idx += 1) {
+    numArr.push(idx);
+  }
+
+  numArr.map((num, idx) => {
+    if (idx % 2 === 0) {
+      value += "1";
+    } else if (idx % 2 === 1) {
+      value += "0";
+    }
+  });
+  return value;
 }
 
 
-stringy(6);    // "101010"
-stringy(9);    // "101010101"
-stringy(4);    // "1010"
-stringy(7);    // "1010101"
+
+console.log(stringy(6));    // "101010"
+console.log(stringy(9));    // "101010101"
+console.log(stringy(4));    // "1010"
+console.log(stringy(7));    // "1010101"
